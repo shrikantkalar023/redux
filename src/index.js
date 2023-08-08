@@ -1,16 +1,22 @@
-// Currying: change a fn having n args into a fn having 1 arg
+// Immutability
+// Both methods do shallow copy, so be aware of any nested objs or arrays.
 
-import { compose, pipe } from "lodash/fp";
+const person = {
+  name: "John",
+  address: {
+    country: "India",
+    city: "Mumbai",
+  },
+};
 
-let input = "    JavaScript    ";
-let output = "<div>" + input.trim() + "</div>";
+// 1st way
+const updatedPerson = Object.assign({}, person, { name: "Ron", age: 12 });
 
-const trim = (str) => str.trim();
-const wrap = (type) => (str) => `<${type}>${str}</${type}>`;
-const toLowerCase = (str) => str.toLowerCase();
+// 2nd way
+const updatedPerson2 = {
+  ...person,
+  name: "Won",
+  address: { ...person.address, city: "Nagpur" },
+};
 
-// const transform = compose(wrapInDiv, toLowerCase, trim);
-const transform = pipe(trim, toLowerCase, wrap("span"));
-
-const result = transform(input);
-console.log(result);
+console.log(updatedPerson, updatedPerson2);
