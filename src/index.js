@@ -1,22 +1,15 @@
-// Immutability
-// Both methods do shallow copy, so be aware of any nested objs or arrays.
+// Immutability in Arrays
 
-const person = {
-  name: "John",
-  address: {
-    country: "India",
-    city: "Mumbai",
-  },
-};
+const numbers = [1, 2, 3];
 
-// 1st way
-const updatedPerson = Object.assign({}, person, { name: "Ron", age: 12 });
+// adding
+// const index = numbers.indexOf(3);
+// const updatedNumbers = [...numbers.slice(0, index), 4, ...numbers.slice(index)];
 
-// 2nd way
-const updatedPerson2 = {
-  ...person,
-  name: "Won",
-  address: { ...person.address, city: "Nagpur" },
-};
+// removing
+// const updatedNumbers = [...numbers.filter((n) => n !== 2)];
 
-console.log(updatedPerson, updatedPerson2);
+// updating
+const updatedNumbers = [...numbers.map((n) => (n === 2 ? 20 : n))];
+
+console.log(numbers, updatedNumbers);
