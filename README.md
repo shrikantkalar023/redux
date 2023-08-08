@@ -19,3 +19,5 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 3. Higher Order Fns: takes fn as input or returns it or both.
 
 4. Currying: changing a fn having n args into a fn having 1 arg.
+
+5. Redux follows Pure fns & Immutability principles.
