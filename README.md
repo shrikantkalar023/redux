@@ -6,7 +6,7 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 
 ### Functional Programming Section
 
-1. To solve problem fns which receive input & give output are used. They dont MUTATE data.
+1. To solve problems using small & reusable fns which receive input & give output. They dont MUTATE data.
 
 2. In JS fns can be treated as any other objs.
 
@@ -16,4 +16,4 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 
    -returned from other fns.
 
-3.
+3. Higher Order Fns: takes fn as input or returns it or both.

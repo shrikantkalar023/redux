@@ -1,12 +1,10 @@
-// Higher Order Fns: takes fn as input or returns it or both
+// Fn composition: using small fns to solve large task.
 
-function greet(fn) {
-  console.log(fn());
-}
+let input = "    JavaScript    ";
+let output = "<div>" + input.trim() + "</div>";
 
-function sayHello() {
-  // returning fn
-  return function () {
-    return "I am returning a fn";
-  };
-}
+const trim = (str) => str.trim();
+const wrapInDiv = (str) => `<div>${str}</div>`;
+const toLowerCase = (str) => str.toLowerCase();
+
+const result = wrapInDiv(toLowerCase(trim(input)));
