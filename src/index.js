@@ -1,15 +1,13 @@
-// Immutability in Arrays
+// IMMER lib use
+import { produce } from "immer";
 
-const numbers = [1, 2, 3];
+let book = { title: "Harry Potter" };
 
-// adding
-// const index = numbers.indexOf(3);
-// const updatedNumbers = [...numbers.slice(0, index), 4, ...numbers.slice(index)];
+function publish(book) {
+  return produce(book, (draftBook) => {
+    draftBook.isPublished = true;
+  });
+}
+let updatedBook = publish(book);
 
-// removing
-// const updatedNumbers = [...numbers.filter((n) => n !== 2)];
-
-// updating
-const updatedNumbers = [...numbers.map((n) => (n === 2 ? 20 : n))];
-
-console.log(numbers, updatedNumbers);
+console.log(book, updatedBook);
