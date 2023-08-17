@@ -21,3 +21,13 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 4. Currying: changing a fn having n args into a fn having 1 arg.
 
 5. Redux follows Pure fns & Immutability principles.
+
+6. In Redux, we store our app state inside a JS obj called 'store'. It is single source of truth.
+
+7. Reducers:- Fn which takes current state & 'action' as input & returns new state as output. Based on type of action, it will know what properties to update in state.
+
+8. Action is an 'obj' which has a 'type' property (\*required) & other properties which are used to update state.
+
+9. Action is dispatched to store, store calls reducer, reducer updates state, store notifies UI about state change.
+
+10. STEPS: Design store, define actions, create reducers, set up store.
