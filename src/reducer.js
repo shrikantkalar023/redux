@@ -1,6 +1,6 @@
 // store =[]
 
-const lastId = 0;
+let lastId = 0;
 const reducer = (state = [], action) => {
   switch (action.type) {
     case "bugAdded":
@@ -20,3 +20,5 @@ const reducer = (state = [], action) => {
 };
 
 // can also be implemented using if else
+
+export default reducer;

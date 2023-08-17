@@ -31,3 +31,5 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 9. Action is dispatched to store, store calls reducer, reducer updates state, store notifies UI about state change.
 
 10. STEPS: Design store, define actions, create reducers, set up store.
+
+11. UI components should subscribe to store to get notified about state changes. Unsubscribe when component is unmounted.
