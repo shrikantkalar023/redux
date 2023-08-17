@@ -33,3 +33,7 @@ This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 10. STEPS: Design store, define actions, create reducers, set up store.
 
 11. UI components should subscribe to store to get notified about state changes. Unsubscribe when component is unmounted.
+
+12. Action types: strings which describe action. Defined as constants.
+
+13. Action creators: fns which return action objs.
