@@ -1,4 +1,4 @@
-import * as actions from "./actionTypes";
+import { bugAdded, bugRemoved, bugResolved } from "./actions";
 import store from "./store";
 
 // subscribing and unsubscribing to the store
@@ -7,12 +7,7 @@ const unsubscribe = store.subscribe(() => {
 });
 
 // dispatching actions
-store.dispatch({
-  type: actions.BUG_ADDED,
-  payload: {
-    description: "Bug1",
-  },
-});
+store.dispatch(bugAdded("Bug 1"));
 
 // internally redux does the following
 // state = reducer(state, action)
@@ -21,13 +16,8 @@ store.dispatch({
 // get the state
 console.log(store.getState());
 
-// unsubscribing
-unsubscribe();
+store.dispatch(bugResolved(1));
+console.log(store.getState());
 
-store.dispatch({
-  type: actions.BUG_REMOVED,
-  payload: {
-    id: 1,
-  },
-});
+store.dispatch(bugRemoved(1));
 console.log(store.getState());
