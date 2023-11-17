@@ -2,6 +2,8 @@
 
 This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 
+dist folder is required for the proj to work.
+
 ## Notes
 
 ### Functional Programming Section
