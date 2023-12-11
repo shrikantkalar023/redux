@@ -1,5 +1,3 @@
-// store =[]
-
 import * as actions from "./actionTypes";
 
 let lastId = 0;
@@ -27,7 +25,5 @@ const reducer = (state = [], action) => {
       return state;
   }
 };
-
-// can also be implemented using if else
 
 export default reducer;
