@@ -39,3 +39,5 @@ dist folder is required for the proj to work.
 12. Action types: strings which describe action. Defined as constants.
 
 13. Action creators: fns which return action objs.
+
+14. Better File Structure: src/store/feature/actions.js, actionTypes.js, reducers.js . Feature e.g. auth, form etc. or Better yet use Ducks pattern.
