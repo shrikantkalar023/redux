@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { AppDispatch, RootState } from "./configureStore";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { RootState } from "./configureStore";
 
 interface BugPayload {
   description?: string;
@@ -23,20 +22,20 @@ export const bugsSlice = createSlice({
   name: "bugs",
   initialState,
   reducers: {
-    bugAdded: (state, action: PayloadAction<BugPayload>) => {
-      state.push({
+    bugAdded: (bugs, action: PayloadAction<BugPayload>) => {
+      bugs.push({
         id: ++lastId,
         description: action.payload.description || "",
         resolved: false,
       });
     },
-    bugRemoved: (state, action: PayloadAction<BugPayload>) => {
+    bugRemoved: (bugs, action: PayloadAction<BugPayload>) => {
       if (typeof action.payload.id === "number")
-        state.splice(action.payload.id - 1, 1);
+        bugs.splice(action.payload.id - 1, 1);
     },
-    bugResolved: (state, action: PayloadAction<BugPayload>) => {
+    bugResolved: (bugs, action: PayloadAction<BugPayload>) => {
       if (typeof action.payload.id === "number")
-        state[action.payload.id - 1].resolved = true;
+        bugs[action.payload.id - 1].resolved = true;
     },
   },
 });
@@ -46,6 +45,3 @@ export const { bugAdded, bugRemoved, bugResolved } = bugsSlice.actions;
 export const selectBugs = (state: RootState) => state.bugs;
 
 export default bugsSlice.reducer;
-
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
