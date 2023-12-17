@@ -1,9 +1,10 @@
 import {
   bugAdded,
+  bugAssigned,
   bugRemoved,
   bugResolved,
+  bugsByMemberId,
   selectBugs,
-  unresolvedBugs,
 } from "./store/bugsSlice";
 import { useAppSelector, useAppDispatch } from "./store/configureStore";
 import {
@@ -11,14 +12,21 @@ import {
   projectRemoved,
   selectProjects,
 } from "./store/projectsSlice";
+import { memberAdded, memberRemoved, selectTeam } from "./store/teamSlice";
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
   const bugs = useAppSelector(selectBugs);
   const projects = useAppSelector(selectProjects);
-  const unResolvedBugs1 = useAppSelector(unresolvedBugs);
-  const unResolvedBugs2 = useAppSelector(unresolvedBugs);
-  const dispatch = useAppDispatch();
-  console.log(unResolvedBugs1 === unResolvedBugs2);
+  const team = useAppSelector(selectTeam);
+  const bugsByTeamMember = useAppSelector(bugsByMemberId(2));
+
+  console.log(bugsByTeamMember);
+
+  const memberAssigned = (bugId: number, memberId: number) => {
+    dispatch(bugAssigned({ bugId, memberId }));
+  };
 
   return (
     <div>
@@ -39,7 +47,32 @@ const App = () => {
       {bugs.map((bug) => (
         <li key={bug.id}>
           {bug.description} + {bug.resolved ? "Resolved" : "Not Resolved"}
+          <select
+            onChange={(e) =>
+              memberAssigned(bug.id, parseInt(e.currentTarget.value))
+            }
+          >
+            {team.map((team) => (
+              <option key={team.id} value={team.id}>
+                {team.name}
+              </option>
+            ))}
+          </select>
         </li>
+      ))}
+      <h1>Team</h1>
+      <button
+        onClick={() =>
+          dispatch(memberAdded({ name: `Member ${team.length + 1}` }))
+        }
+      >
+        Add Member
+      </button>
+      <button onClick={() => dispatch(memberRemoved({ id: team.length }))}>
+        Remove Member
+      </button>
+      {team.map((team) => (
+        <li key={team.id}>{team.name}</li>
       ))}
       <h1>Projects</h1>
       <button

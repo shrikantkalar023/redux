@@ -1,11 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./configureStore";
 
-interface ProjectPayload {
-  id?: number;
-  name?: string;
-}
-
 // Define a type for the slice state
 interface ProjectState {
   id: number;
@@ -21,15 +16,14 @@ export const projectsSlice = createSlice({
   name: "projects",
   initialState,
   reducers: {
-    projectAdded: (project, action: PayloadAction<ProjectPayload>) => {
+    projectAdded: (project, action: PayloadAction<{ name: string }>) => {
       project.push({
         id: ++lastId,
-        name: action.payload.name || "",
+        name: action.payload.name,
       });
     },
-    projectRemoved: (project, action: PayloadAction<ProjectPayload>) => {
-      if (typeof action.payload.id === "number")
-        project.splice(action.payload.id - 1, 1);
+    projectRemoved: (project, action: PayloadAction<{ id: number }>) => {
+      project.splice(action.payload.id - 1, 1);
     },
   },
 });
