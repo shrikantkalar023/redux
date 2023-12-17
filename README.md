@@ -41,3 +41,13 @@ dist folder is required for the proj to work.
 13. Action creators: fns which return action objs.
 
 14. Better File Structure: src/store/feature/actions.js, actionTypes.js, reducers.js . Feature e.g. auth, form etc. or Better yet use Ducks pattern.
+
+15. In a **Complicated App** it is better to store All state in redux. The more state in reudx, the more we can get out of redux.
+
+16. Use Array to **preserve Order**, Object for **quick lookup**.
+
+17. Store structure: top level slices-> entities(data), auth, ui etc.
+
+18. **Data normalization**: get rid of duplicate data & Connect related data using identifiers. _paularmstrong/normalizr_ library.
+
+19. **Selectors**: fns which take state & return computed state.

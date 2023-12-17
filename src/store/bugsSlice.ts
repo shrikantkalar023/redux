@@ -45,3 +45,6 @@ export const { bugAdded, bugRemoved, bugResolved } = bugsSlice.actions;
 export const selectBugs = (state: RootState) => state.bugs;
 
 export default bugsSlice.reducer;
+
+export const unresolvedBugs = (state: RootState) =>
+  state.bugs.filter((bug) => !bug.resolved);

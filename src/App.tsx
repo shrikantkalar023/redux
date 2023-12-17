@@ -3,6 +3,7 @@ import {
   bugRemoved,
   bugResolved,
   selectBugs,
+  unresolvedBugs,
 } from "./store/bugsSlice";
 import { useAppSelector, useAppDispatch } from "./store/configureStore";
 import {
@@ -14,7 +15,10 @@ import {
 const App = () => {
   const bugs = useAppSelector(selectBugs);
   const projects = useAppSelector(selectProjects);
+  const unResolvedBugs1 = useAppSelector(unresolvedBugs);
+  const unResolvedBugs2 = useAppSelector(unresolvedBugs);
   const dispatch = useAppDispatch();
+  console.log(unResolvedBugs1 === unResolvedBugs2);
 
   return (
     <div>
