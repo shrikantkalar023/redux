@@ -51,3 +51,5 @@ dist folder is required for the proj to work.
 18. **Data normalization**: get rid of duplicate data & Connect related data using identifiers. _paularmstrong/normalizr_ library.
 
 19. **Selectors**: fns which take state & return computed state.
+
+20. **Memoization**: technique to optimize expensive fns. caching the result of fn call & return cached result when same input is provided. _reselect_ library & _createSelector_ fn.

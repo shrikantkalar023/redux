@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./configureStore";
 
 interface BugPayload {
@@ -46,5 +46,11 @@ export const selectBugs = (state: RootState) => state.bugs;
 
 export default bugsSlice.reducer;
 
-export const unresolvedBugs = (state: RootState) =>
-  state.bugs.filter((bug) => !bug.resolved);
+export const unresolvedBugs = createSelector(
+  (state) => state.bugs,
+  (state) => state.projects,
+  (bugs, projects) => [
+    ...bugs.filter((bug: BugState) => !bug.resolved),
+    ...projects,
+  ]
+);
