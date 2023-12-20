@@ -53,3 +53,7 @@ dist folder is required for the proj to work.
 19. **Selectors**: fns which take state & return computed state.
 
 20. **Memoization**: technique to optimize expensive fns. caching the result of fn call & return cached result when same input is provided. _reselect_ library & _createSelector_ fn.
+
+21. **Middleware**: fns which run between dispatching an action & the moment it reaches reducer. e.g. logging, analytics, async calls etc.
+
+22. **Custom Middleware**: use type _Middleware_ from redux-toolkit.Required params: store, next, action

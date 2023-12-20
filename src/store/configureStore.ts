@@ -7,7 +7,8 @@ import logger from "./middleware/logger";
 
 export const store = configureStore({
   reducer: { bugs: bugsReducer, projects: projectsReducer, team: teamReducer },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(logger({ destination: "console" })),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,9 +1,12 @@
 import { Middleware } from "@reduxjs/toolkit";
 
-const logger: Middleware = (store) => (next) => (action) => {
-  console.log("store", store);
-  console.log("next", next);
-  console.log("action", action);
-  next(action);
-};
+const logger =
+  (param: object): Middleware =>
+  (store) =>
+  (next) =>
+  (action) => {
+    console.log("logging", param);
+    console.log("store", store);
+    next(action);
+  };
 export default logger;
