@@ -32,9 +32,14 @@ const App = () => {
     <div>
       <h1>Bugs</h1>
       <button
-        onClick={() =>
-          dispatch(bugAdded({ description: `Bug ${bugs.length + 1}` }))
-        }
+        onClick={() => {
+          dispatch(bugAdded({ description: `Bug ${bugs.length + 1}` }));
+          dispatch((dispatch, getState) => {
+            console.log("thunk", getState());
+            // FIXME: below code testing only. remove it later
+            dispatch(bugAdded({ description: `Bug ${bugs.length + 1}` }));
+          });
+        }}
       >
         Add Bug
       </button>

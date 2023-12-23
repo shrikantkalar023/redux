@@ -2,7 +2,7 @@
 
 This is the repo i created and updated while learning Redux. **-Shrikant Kalar**
 
-dist folder is required for the proj to work.
+dist folder is required for the proj to work (before i added react)
 
 ## Notes
 
@@ -57,3 +57,5 @@ dist folder is required for the proj to work.
 21. **Middleware**: fns which run between dispatching an action & the moment it reaches reducer. e.g. logging, analytics, async calls etc.
 
 22. **Custom Middleware**: use type _Middleware_ from redux-toolkit.Required params: store, next, action
+
+23. **Thunk**: default middleware allowing us to sent fns as actions.
