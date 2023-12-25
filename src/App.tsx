@@ -34,10 +34,11 @@ const App = () => {
       <button
         onClick={() => {
           dispatch(bugAdded({ description: `Bug ${bugs.length + 1}` }));
-          dispatch((dispatch, getState) => {
-            console.log("thunk", getState());
-            // FIXME: below code testing only. remove it later
-            dispatch(bugAdded({ description: `Bug ${bugs.length + 1}` }));
+          dispatch({
+            type: "error",
+            payload: {
+              message: "An error occured.",
+            },
           });
         }}
       >
